@@ -89,4 +89,11 @@ let _ = print_int_list (evenIndexesOnly [1;2;3;4;5] true)
 let _ = print_endline ""
 
 (*Zadanie 8*)
-(*TODO*)
+let rec checkPrime((n:int),(i:int)):bool = 
+  if (n<=1) then false
+  else if (n<=3) then true
+  else if (n mod i = 0) then false
+  else if (i*i > n) then true
+  else checkPrime(n,i+1)
+
+let _ = print_endline (string_of_bool (checkPrime(17,2)))
