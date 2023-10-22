@@ -34,7 +34,7 @@ def reverseList[A](list: List[A], newList: List[A]): List[A] = list match{
 def palindrome[A](list: List[A]): Boolean = list match {
   case Nil => true // Jeżeli usunęliśmy wszystkie elementy przy sprawdzaniu to mamy palindrom
   case head :: Nil => true // Ostatni element, jeżeli tu dotarliśmy to mamy palindrom
-  case head :: tail => if (head == getLastElement(tail).get) then palindrome(deleteLastElement(tail)) else false
+  case head :: tail => if (head == getLastElement(tail).get) palindrome(deleteLastElement(tail)) else false
   // Jeżeli pierwszy element jest równy ostatniemu to wykonaj ponownie bez pierwszego i ostatniego elementu
 }
 
@@ -68,6 +68,16 @@ def evenIndexOnly[A](list: List[A], evenIndex: Boolean): List[A] = list match {
   case head :: tail => if evenIndex then head :: evenIndexOnly(tail, !evenIndex)
   else evenIndexOnly(tail, !evenIndex)
   //jeżeli jestem na parzystym indeksie to biorę element, jeżeli nie to pomijam
+}
+
+@tailrec
+def checkPrime(n: Int, i: Int): Boolean = {
+  if (n<=1) false         // 1 lub ujemne nie są pierwsze
+  else if (n<=3) true     // 2 i 3 są pierwsze
+  else if (n%i==0) false  // jeżeli jest podzielna to nie jest pierwsza
+  else if (i*i>n) true    // według wikipedi wszystkie dzielniki większe od pierwiastka z n muszą mieć inny już sprawdzony dzielnik
+  else checkPrime(n, i+1) // sprawdzam podzielność przez następną liczbę
+
 }
 
 
