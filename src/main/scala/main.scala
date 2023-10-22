@@ -92,6 +92,6 @@ def main(): Unit = {
   println(palindrome(List(1, 2, 3, 4, 5)))                            // Zadanie 5
   println(uniqueElementsOnly(List(1, 2, 3, 4, 5, 1, 2, 3, 4, 5)))     // Zadanie 6
   println(evenIndexOnly(List(1, 2, 3, 4, 5), true))          // Zadanie 7
-
+  println(checkPrime(17, 2))                                           // Zadanie 8
 
 }
